@@ -3,9 +3,6 @@ import ButtonAddToCart from './ButtonAddToCart';
 import './Item.css'
 
 function Item( {title, img, price} ){
-
-  console.log("Renderizmos Item - Props:", title, img, price)
-
   // 2. Componentes retornan JSX/HTML
   return ( 
       <div className="item-card">
