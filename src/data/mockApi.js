@@ -2,7 +2,7 @@ import products from "./productos"
 
 function getMockApiData(){
     const promiseProducts = new Promise((resolve, reject)=>{
-        setTimeout(()=>{
+        setTimeout( ()=>{
             resolve(products)
         }, 2000)
     })

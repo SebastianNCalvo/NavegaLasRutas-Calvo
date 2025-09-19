@@ -7,14 +7,25 @@ nav{
     width: 100%;
 }
 
+.imagenMarca{
+    width: 10%;
+    height: auto;
+}
+
 ul{
-    width: 100%;
+    width: 70%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    list-style-type: none;
 }
-
 a{
     text-decoration: none;
     color: black;
+}
+
+.logoCarrito{
+    display: flex;
+    justify-content: center;
+    width: 10%;
 }

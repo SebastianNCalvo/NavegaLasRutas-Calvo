@@ -1,4 +1,5 @@
 // * Estado de componentes
+import './ButtonAddToCart.css'
 import { useState } from "react";
 
 export default function ButtonAddToCart(  ){

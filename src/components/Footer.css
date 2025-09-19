@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: solid 1px black;
+    margin-top: 15px;
+    background-color: #4f959d;
+    align-items: center;
+}
+
+.imagen{
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+}
+
+img{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+p{
+    font-size: 1rem;
+    font-weight: bold;
+}

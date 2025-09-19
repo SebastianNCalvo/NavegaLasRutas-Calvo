@@ -1,27 +1,35 @@
+import './ItemListContainer.css'
 import Item from "./Item"
-import products from "../data/productos"
 import getMockApiData from "../data/mockApi"
+import { useEffect, useState } from 'react'
 
 export default function ItemListContainer( props ){
+  const [products, setProducts] = useState([])
 
-  getMockApiData()
-  .then((productList)=> {
-    console.log("Promesa terminada");
-  })
-  .catch((error) =>{
-    alert("Error al cargar los datos")
-    console.log("Error encontrado: "+error);    
-  })
+  useEffect(() =>{
+    getMockApiData()
+    .then( (productList)=> {
+      setProducts(productList)
+      return productList
+    })
+    .catch( (error) =>{
+      alert("Error al cargar los datos. Recargue por favor")
+      console.log("Error encontrado: "+error);    
+    })
+  }, [])
   
 
   return (
     <div>
       <h2>{props.greeting}</h2>
       <div>
-        <h2>Nuestros productos</h2>        
-        {
-          products.map(product => <Item {...product}></Item>)
-        }
+        <h2>Nuestros productos</h2>
+        {products.length === 0 ? "Cargando..." : ""}
+        <div className='productos'>
+          {
+            products.map(product => <Item {...product}></Item>)
+          }
+        </div>       
       </div>
     </div>
   )
