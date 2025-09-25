@@ -1,19 +1,40 @@
 import './NavBar.css'
 import CartWidget from './CartWidget'
+import { Link } from 'react-router'
 
 export default function NavBar(){
   return (
     <nav>
-      <img className='imagenMarca' src="./logos/marca2.png" alt="" />
+      <Link to="/">
+        <img className='imagenMarca' src="./logos/marca2.png" alt="" />
+      </Link>
       <ul>
-        <li><a href="">Alfajores</a></li>
-        <li><a href="">Chocolates</a></li>
-        <li><a href="">Snack</a></li>
-        <li><a href="">Pizza</a></li>
+        <li>
+          <Link to="/categoria/alfajor">
+            Alfajores
+          </Link>
+        </li>
+        <li>
+          <Link to="/categoria/chocolate">
+            Chocolate
+          </Link>
+        </li>
+        <li>
+          <Link to="/categoria/snack">
+            Snack
+          </Link>
+        </li>
+        <li>
+          <Link to="/categoria/pizza">
+            Pizza
+          </Link>
+        </li>
       </ul>
-      <div className='logoCarrito'>
-        <CartWidget></CartWidget>
-      </div>
+      <Link to="/cart">
+        <span>
+          <CartWidget></CartWidget>
+        </span>
+      </Link>
     </nav>
   )
 }
