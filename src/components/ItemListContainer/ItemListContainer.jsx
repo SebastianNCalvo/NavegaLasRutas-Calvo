@@ -1,6 +1,6 @@
 import './ItemListContainer.css'
-import Item from "./Item"
-import getMockApiData, { getProductByCategoria } from "../data/mockApi"
+import Item from "../Item/Item"
+import getMockApiData, { getProductByCategoria } from "../../data/mockApi"
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 

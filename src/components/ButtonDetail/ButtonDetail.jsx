@@ -1,4 +1,4 @@
-import './ButtonAddToCart.css'
+import '../ButtonAddToCart/ButtonAddToCart.css'
 
 export default function ButtonDetail(){
   return (
