@@ -1,0 +1,11 @@
+table, tr, th{
+    font-size: 1.8rem;
+    border: 1px solid black;
+}
+
+.divCarrito{
+    width: 100%;
+    margin: 15px 0 15px 0;
+    display: flex;
+    justify-content: center;
+}

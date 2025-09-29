@@ -1,4 +1,3 @@
-// * Estado de componentes
 import './ButtonAddToCart.css'
 import { useState } from "react";
 
@@ -12,9 +11,10 @@ export default function ButtonAddToCart(  ){
 
   return (
     <div className="button-cart">
-      <button onClick={ handleClick } > Agregar al carrito</button>
+      <button onClick={ handleClick } >Agregar al carrito</button>
       <br/>
       <small> {statusInCart} </small>
+
     </div>
   )
 }

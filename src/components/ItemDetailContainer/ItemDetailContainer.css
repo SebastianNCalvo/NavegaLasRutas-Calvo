@@ -10,7 +10,7 @@
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 90%;
+  width: 100%;
   background-color: white;
   margin: 15px;
 }
@@ -28,6 +28,15 @@
   object-fit: cover;
   border-radius: 0.5rem 0.5rem 0 0;
   margin-bottom: 15px;
+  padding: 5px;
+}
+
+.item-card-description-detail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  gap:5px
 }
 
 .item-card-title-detail {
@@ -39,4 +48,21 @@
 .item-card-price-detail {
   font-size: 1rem;
   margin-top: 0.5rem;
+}
+
+.item-card-cantidad-detail{
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-add{
+  background-color: #f6f7e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 30px;
 }
