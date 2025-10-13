@@ -1,29 +1,15 @@
 import './ItemDetailContainer.css'
-import { Link, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { getProductById } from '../../data/mockApi'
-import { useEffect, useState } from 'react'
-import ButtonAddToCart from '../ButtonAddToCart/ButtonAddToCart'
-import products from '../../data/productos'
+import { useEffect, useState, useContext } from 'react'
+import cartContext from '../../context/cartContext'
 
 
 export default function ItemDetailContainer() {
     const {idParam} = useParams()
     const [product, setProduct] = useState({loading:true})
-    const [cantidad, setCantidad] = useState([1])
-
-    function restarCantidad() {
-        if(cantidad == 1){
-            alert('No se puede descontar más unidades')
-        } else{
-            let cantidadNueva = Number(cantidad) - 1
-            setCantidad(cantidadNueva)
-        }
-    }
-    function agregarCantidad() {
-        let cantidadNueva = Number(cantidad) + 1
-        setCantidad(cantidadNueva)
-    }
-
+    let [cantidad, setCantidad] = useState(1)
+    const context = useContext(cartContext)
 
     useEffect(()=>{
         getProductById(idParam)
@@ -31,6 +17,24 @@ export default function ItemDetailContainer() {
         .catch (error => alert(error))
     }, [])
     
+    function agregarCantidad(){
+        cantidad++
+        setCantidad(cantidad)
+        return cantidad
+    }
+
+    function quitarCantidad(){
+        if(cantidad < 2){
+            alert('No se puede bajar cantidad')
+        } else{
+            cantidad--
+        }
+        setCantidad(cantidad)
+        return cantidad
+    }
+
+    product.cantidad=cantidad
+
     if(product.loading){
         return <p>Cargando...</p>
     } else{
@@ -47,20 +51,17 @@ export default function ItemDetailContainer() {
                             <p>{product.description}</p>
                             <h4 className="item-card-price-detail">Precio: $ {product.price}</h4>
                             <div className="item-card-cantidad-detail">
-                                <button className='button-add' onClick={restarCantidad}>-1</button>
-                                <p>{cantidad}</p>
-                                <button className='button-add' onClick={agregarCantidad}>+1</button>
+                                <button className='button-add' onClick={()=>quitarCantidad()}>-1</button>
+                                    <p>{cantidad}</p>
+                                <button className='button-add' onClick={()=>agregarCantidad()}>+1</button>
                             </div>
-                            <Link>
-                                <ButtonAddToCart></ButtonAddToCart>
-                            </Link>
+                            <div>
+                                <button onClick={()=>context.addToCart(product)}>Agregar al carrito</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         )
     }
 }

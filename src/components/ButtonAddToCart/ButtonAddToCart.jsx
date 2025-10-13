@@ -1,5 +1,6 @@
 import './ButtonAddToCart.css'
-import { useState } from "react";
+import { useState , useContext } from "react";
+import cartContext from '../../context/cartContext';
 
 export default function ButtonAddToCart(  ){
   let [statusInCart, setStatusInCart] = useState("No agregaste este item al carrito.")
@@ -7,11 +8,14 @@ export default function ButtonAddToCart(  ){
   function handleClick(){
     alert("Gracias por agregarme al carrito") 
     setStatusInCart("Item agregado al carrito!🙂")
+
   }
+  const context = useContext(cartContext)
+
 
   return (
     <div className="button-cart">
-      <button onClick={ handleClick } >Agregar al carrito</button>
+      <button onClick={context.addToCart } >Agregar al carrito</button>
       <br/>
       <small> {statusInCart} </small>
 
