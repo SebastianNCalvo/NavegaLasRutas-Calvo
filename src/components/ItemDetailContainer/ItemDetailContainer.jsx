@@ -1,8 +1,8 @@
 import './ItemDetailContainer.css'
 import { useParams } from 'react-router'
-import { getProductById } from '../../data/mockApi'
 import { useEffect, useState, useContext } from 'react'
 import cartContext from '../../context/cartContext'
+import { getProductById } from '../../data/firebase'
 
 
 export default function ItemDetailContainer() {

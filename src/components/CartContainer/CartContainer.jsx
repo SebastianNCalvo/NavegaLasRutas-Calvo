@@ -1,10 +1,17 @@
 import './CartContainer.css'
 import { useContext } from 'react'
 import cartContext from '../../context/cartContext'
+import { createOrder } from '../../data/firebase'
 
 export default function CartContainer(){
-    const {cartItems, removeItem} = useContext(cartContext)
+    const {cartItems, removeItem, clearCart} = useContext(cartContext)
     
+    async function handleCheckout(){
+        const newOrder = await createOrder(orderData)
+        alert(`Compra finalizada con exito! tu id es: ${newOrder.id}`)
+        clearCart()
+        return newOrder
+    }
     return(
         <div className='divCarrito'>
             <table>
@@ -28,7 +35,7 @@ export default function CartContainer(){
                 }
 
             </table>
-            {/* <button>Ir a pagar</button> */}
+            <button onClick={handleCheckout}>Ir a pagar</button>
         </div>
     )
 }

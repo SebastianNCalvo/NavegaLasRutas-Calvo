@@ -1,8 +1,8 @@
 import './ItemListContainer.css'
 import Item from "../Item/Item"
-import getMockApiData, { getProductByCategoria } from "../../data/mockApi"
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { getProducts, getProductByCategoria} from '../../data/firebase'
 
 export default function ItemListContainer( props ){
   const [products, setProducts] = useState([])
@@ -17,7 +17,7 @@ export default function ItemListContainer( props ){
         console.log("Error encontrado: "+error);    
       })
     } else{
-      getMockApiData()
+      getProducts()
       .then( (productList)=> {setProducts(productList)})
       .catch( (error) =>{
         alert("Error al cargar los datos. Recargue por favor")
