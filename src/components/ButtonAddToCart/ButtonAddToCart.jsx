@@ -3,7 +3,6 @@ import { useContext } from "react";
 import cartContext from '../../context/cartContext';
 
 export default function ButtonAddToCart(  ){
-
   const context = useContext(cartContext)
 
   return (
