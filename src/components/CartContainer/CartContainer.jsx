@@ -3,8 +3,7 @@ import { useContext, useState } from 'react'
 import cartContext from '../../context/cartContext'
 import { createOrder } from '../../data/firebase'
 import FormCheackout from './FormCheckout'
-import Swal from 'Sweetalert2/dist/sweetalert2.js'
-import 'sweetalert2/src/sweetalert2.scss'
+
 
 export default function CartContainer(){
     const {cartItems, removeItem, clearCart} = useContext(cartContext)
@@ -18,11 +17,8 @@ export default function CartContainer(){
         }
 
         const newOrder = await createOrder(orderData)
-        Swal.fire({
-            title: `Compra finalizada con exito! tu código de seguimiento es: ${newOrder.id}`,
-            text: "Guardá el codigo proporcionado para poder seguir tu envio",
-            icon: "success"
-        })
+        alert(`Compra finalizada con exito! tu código de seguimiento es: ${newOrder.id}
+        Guardá el codigo proporcionado para poder seguir tu envio`)
         clearCart()
         return newOrder
     }

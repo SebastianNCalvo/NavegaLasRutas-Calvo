@@ -3,8 +3,6 @@ import { useParams } from 'react-router'
 import { useEffect, useState, useContext } from 'react'
 import cartContext from '../../context/cartContext'
 import { getProductById } from '../../data/firebase'
-import Swal from 'sweetalert2'
-
 
 export default function ItemDetailContainer() {
     const {idParam} = useParams()
@@ -26,11 +24,7 @@ export default function ItemDetailContainer() {
 
     function quitarCantidad(){
         if(cantidad < 2){
-            Swal.fire({
-                icon: "error",
-                title: "No puedes bajar más la cantidad",
-                text: "La cantidad minima para comprar es 1. De lo contrario, no compre el producto"
-                });
+            
         } else{
             cantidad--
         }
