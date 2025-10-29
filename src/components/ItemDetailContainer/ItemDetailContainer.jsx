@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import { useEffect, useState, useContext } from 'react'
 import cartContext from '../../context/cartContext'
 import { getProductById } from '../../data/firebase'
+import Swal from 'sweetalert2'
 
 
 export default function ItemDetailContainer() {
@@ -25,12 +26,21 @@ export default function ItemDetailContainer() {
 
     function quitarCantidad(){
         if(cantidad < 2){
-            alert('No se puede bajar cantidad')
+            Swal.fire({
+                icon: "error",
+                title: "No puedes bajar más la cantidad",
+                text: "La cantidad minima para comprar es 1. De lo contrario, no compre el producto"
+                });
         } else{
             cantidad--
         }
         setCantidad(cantidad)
         return cantidad
+    }
+
+    function agregarAlCarrito(){
+        context.addToCart(product)
+        setCantidad(1)
     }
 
     product.cantidad=cantidad
@@ -56,7 +66,7 @@ export default function ItemDetailContainer() {
                                 <button className='button-add' onClick={()=>agregarCantidad()}>+1</button>
                             </div>
                             <div>
-                                <button onClick={()=>context.addToCart(product)}>Agregar al carrito</button>
+                                <button onClick={()=>agregarAlCarrito()}>Agregar al carrito</button>
                             </div>
                         </div>
                     </div>

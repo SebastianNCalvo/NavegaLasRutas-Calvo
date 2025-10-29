@@ -6,7 +6,6 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import Footer from './components/Footer/Footer'
 import CartContainer from './components/CartContainer/CartContainer'
 import { CartProvider } from './context/cartContext'
-import { exportProductsData } from './data/firebase'
 
 export default function App() {
 
@@ -14,7 +13,6 @@ export default function App() {
     <CartProvider>
       <BrowserRouter>
         <NavBar></NavBar>
-        <button onClick={exportProductsData}>Export data to FIRESTORE</button>
         <Routes>
           <Route path='/' element={<ItemListContainer greeting="Bienvenido a Distribuidora de la Costa"></ItemListContainer>} />
           <Route path='/categoria/:categParam' element={<ItemListContainer></ItemListContainer>}/>

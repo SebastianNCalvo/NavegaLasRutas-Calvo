@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import products from "../data/productos";
 
 const cartContext = createContext()
 
@@ -41,7 +40,8 @@ export function CartProvider(props){
     }
 
     function calculateTotalPrice(){
-        console.log(cartItems)
+        let totalFinal = cartItems.price
+        console.log(totalFinal)
     }
 
 

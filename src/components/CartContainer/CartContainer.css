@@ -1,11 +1,52 @@
-table, tr, th{
-    font-size: 1.8rem;
-    border: 1px solid black;
+.tablaCarrito{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.divCarrito{
-    width: 100%;
-    margin: 15px 0 15px 0;
+.divTitulos{
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.divImagen{
+    width: 150px;
+}
+
+img.divImagen{
+    width: 100px;
+    height: auto;
+}
+
+.divproducto{
+    width: 350px;
+}
+
+.divCantidad{
+    width: 150px;
+}
+
+.divTotal{
+    width: 150px;
+}
+
+.divBtn{
+    width: 100px;
+}
+
+.btnEliminar{
+    background-color: rgb(209, 55, 55);
+    width: 80px;
+    height: 35px;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    margin: 10px;
+}
+
+h5{
+    font-size: 1.5rem;
 }

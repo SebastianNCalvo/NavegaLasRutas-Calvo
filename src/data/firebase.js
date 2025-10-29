@@ -3,12 +3,12 @@ import {addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where} fr
 import products from "./productos";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAWBtcqBWlTL7g5KGwYy9aT-Yeyz1VXbXg",
+  apiKey: import.meta.env.VITE_FS_APIKEY ,
   authDomain: "distribuidora-de-la-costa.firebaseapp.com",
-  projectId: "distribuidora-de-la-costa",
+  projectId: import.meta.env.VITE_FS_PROJECT_ID,
   storageBucket: "distribuidora-de-la-costa.firebasestorage.app",
   messagingSenderId: "792092113091",
-  appId: "1:792092113091:web:b64129ecd7fb082c754a76"
+  appId: import.meta.env.VITE_FS_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -47,8 +47,8 @@ export async function getProductByCategoria(categParam){
 }
 
 export async function createOrder(orderData){
-  const productsRef = collection(db, "orders")
-  const newDoc = await addDoc(productsRef, orderData)
+  const ordersRef = collection(db, "orders")
+  const newDoc = await addDoc(ordersRef, orderData)
   return newDoc
 }
 
